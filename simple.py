@@ -6,37 +6,33 @@ import matplotlib.pyplot as plt
 from sklearn.metrics import mean_squared_error, r2_score
 
 import pandas as pd
-data = pd.read_excel('data.xlsx', usecols="A,M")
+data = pd.read_excel('data.xlsx', usecols="B:M", skiprows=2)
 np_data = np.array(data)
 
-output = pd.read_excel('data.xlsx', usecols="N")
+output = pd.read_excel('data.xlsx', usecols="N", skiprows=2)
 np_output = np.array(output)
 
+#print(np_data)
+#print("Seperation")
+#print(np_output)
 
 
-
-#data = genfromtxt('iris.data', delimiter=',', dtype=None, encoding=None, usecols=(0,1,2,3))
-#output = genfromtxt('iris.data', delimiter=',', dtype=None, encoding=None, usecols=(4))
-
-#print(data)
-#count = 0 #Adding a comment here
-#for i in output:
-#    if i == 'Iris-setosa':
-#        output[count] = 1
-#    elif i == 'Iris-versicolor':
-#        output[count] = 2
-#    else:
-#        output[count] = 3
-#    count += 1
-
-
-data_train, data_test, labels_train, labels_test = train_test_split(np_data,np_output, test_size=0.2, random_state=1)
+data_train, data_test, labels_train, labels_test = train_test_split(np_data,np_output, test_size=0.2, random_state=42)
 
 
 model = LinearRegression()
 model.fit(data_train,labels_train)
 
+r_sq = model.score(data_train,labels_train)
+print("Training coef of d: ", r_sq)
+
+
+test_pred = model.predict([[1,0,1,0,42,22,28,1,0,26,0,1,]])
+print("test_pred: ", test_pred)
+
 y_pred = model.predict(data_test)
+print("y_pred: ", y_pred)
+print("labels_test: ", labels_test)
 
 print("Coefficients: \n", model.coef_)
 print("Mean squared error: %.2f" % mean_squared_error(labels_test,y_pred))
