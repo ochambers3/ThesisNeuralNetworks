@@ -27,12 +27,12 @@ r_sq = model.score(data_train,labels_train)
 print("Training coef of d: ", r_sq)
 
 
-test_pred = model.predict([[1,0,1,0,42,22,28,1,0,26,0,1,]])
-print("test_pred: ", test_pred)
+#test_pred = model.predict([[1,0,1,0,42,22,28,1,0,26,0,1,]])
+#print("test_pred: ", test_pred)
 
 y_pred = model.predict(data_test)
-print("y_pred: ", y_pred)
-print("labels_test: ", labels_test)
+#print("y_pred: ", y_pred)
+#print("labels_test: ", labels_test)
 
 print("Coefficients: \n", model.coef_)
 print("Mean squared error: %.2f" % mean_squared_error(labels_test,y_pred))
