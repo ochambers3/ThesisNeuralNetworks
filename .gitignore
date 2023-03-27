@@ -1,2 +1,5 @@
-*.xslx
+*.xlsx
+Data.xlsx
+"Data, Small Numbers.xlsx"
+MultiClassData.xlsx
 env/
