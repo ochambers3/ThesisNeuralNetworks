@@ -16,7 +16,7 @@ np_output = np.array(output)
 #print(np_output)
 
 
-data_train, data_test, labels_train, labels_test = train_test_split(np_data,np_output, test_size=0.2, random_state=42)
+data_train, data_test, labels_train, labels_test = train_test_split(np_data, np_output, test_size=0.2, random_state=42)
 
 
 model = LinearRegression()
